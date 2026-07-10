@@ -220,6 +220,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      /* remove o botão de play em celulares */
+      pointer-events: none;
     }
     .hero-overlay {
       position: absolute;
@@ -773,7 +775,7 @@
     }
 
     /* ============================================================
-       MEDIA QUERIES – SOMENTE AJUSTES DE RESPONSIVIDADE
+       MEDIA QUERIES – RESPONSIVIDADE
        ============================================================ */
 
     /* Tablets e telas médias (até 1024px) */
@@ -799,7 +801,7 @@
       }
     }
 
-    /* Dispositivos móveis (até 820px) – menu hambúrguer e empilhamento */
+    /* Dispositivos móveis (até 820px) */
     @media (max-width: 820px) {
       .nav-center {
         display: none;
@@ -846,7 +848,6 @@
         min-width: 48px;
       }
 
-      /* Herói */
       .hero-content h1 {
         font-size: 2.4rem;
       }
@@ -858,7 +859,6 @@
         font-size: 0.95rem;
       }
 
-      /* Seções */
       section {
         padding: 60px 0;
       }
@@ -871,7 +871,6 @@
         max-width: 100%;
       }
 
-      /* Serviços */
       .servicos-grid {
         gap: 20px;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -886,7 +885,6 @@
         font-size: 0.95rem;
       }
 
-      /* Carrossel */
       .marquee-card {
         flex: 0 0 200px;
       }
@@ -895,7 +893,6 @@
         width: 30px;
       }
 
-      /* Viveiro */
       .viveiro-destaque {
         flex-direction: column;
         align-items: center;
@@ -931,7 +928,6 @@
         right: auto;
       }
 
-      /* Contato */
       .contato-grid {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -951,7 +947,6 @@
         min-height: 200px;
       }
 
-      /* Footer */
       .footer-inner {
         flex-direction: column;
         gap: 24px;
@@ -999,7 +994,6 @@
         height: 2px;
       }
 
-      /* Herói */
       .hero {
         min-height: 80vh;
         margin-top: 68px;
@@ -1020,7 +1014,6 @@
         gap: 12px;
       }
 
-      /* Seções */
       section {
         padding: 40px 0;
       }
@@ -1034,7 +1027,6 @@
         font-size: 0.7rem;
       }
 
-      /* Serviços */
       .servicos-grid {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -1049,10 +1041,9 @@
         font-size: 0.9rem;
       }
 
-      /* Carrossel */
       .marquee-track {
         gap: 12px;
-        animation-duration: 80s; /* mais lento para mobile */
+        animation-duration: 80s;
       }
       .marquee-card {
         flex: 0 0 150px;
@@ -1061,7 +1052,6 @@
         padding: 12px 0 20px;
       }
 
-      /* Viveiro */
       .viveiro-destaque {
         padding: 28px 16px;
       }
@@ -1079,7 +1069,6 @@
         font-size: 0.95rem;
       }
 
-      /* Contato */
       .contato-grid {
         gap: 24px;
       }
@@ -1114,7 +1103,6 @@
         min-height: 150px;
       }
 
-      /* Footer */
       footer {
         padding: 28px 0 16px;
       }
@@ -1152,7 +1140,6 @@
         margin-top: 20px;
       }
 
-      /* Back to top */
       .back-to-top {
         width: 42px;
         height: 42px;
@@ -1445,8 +1432,8 @@
       'imagens/projeto21.jpg'
     ];
 
-    // Duplica APENAS 1 vez (2x) para melhor performance em mobile
-    const imagensDuplicadas = [...imagensMarquee, ...imagensMarquee];
+    // Duplicamos 2 vezes para garantir efeito infinito
+    const imagensDuplicadas = [...imagensMarquee, ...imagensMarquee, ...imagensMarquee];
 
     imagensDuplicadas.forEach(src => {
       const card = document.createElement('div');
@@ -1565,8 +1552,8 @@
         servico3_desc: 'Más de 200 especies nativas y ornamentales cultivadas con responsabilidad.',
         servico4_tit: 'Consultoría y manejo',
         servico4_desc: 'Seguimiento técnico y mantenimiento para que tu jardín florezca.',
-        proyectos_eyebrow: 'Proyectos',
-        proyectos_titulo: 'Algunos trabajos realizados',
+        projetos_eyebrow: 'Proyectos',
+        projetos_titulo: 'Algunos trabajos realizados',
         viveiro_eyebrow: 'Vivero',
         viveiro_titulo: 'Más de 200 especies<br />a tu disposición',
         viveiro_desc1: 'Plantas nativas y ornamentales cultivadas con cuidado.',
